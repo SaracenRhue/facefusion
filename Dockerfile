@@ -8,7 +8,7 @@ RUN dnf install -y sudo wget git python3.10 python-is-python3 pip curl ffmpeg
 RUN pip install -r requirements.txt
 RUN python install.py --onnxruntime cuda
 
-VOLUME /home/user/facefusion/
+# VOLUME /home/user/facefusion/
 
 
 # Expose port 7860
