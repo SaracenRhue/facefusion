@@ -1,10 +1,10 @@
 FROM nvidia/cuda:12.1.0-base-ubuntu22.04
 
-RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata.
 WORKDIR /app
 COPY . .
 # Update package repositories and install dependencies
 RUN apt update
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata.
 RUN apt install -y git wget curl python3.10 ffmpeg python-is-python3
 RUN apt install -y pip
 RUN pip install -r requirements.txt
