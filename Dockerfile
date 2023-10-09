@@ -1,16 +1,14 @@
-FROM nvidia/cuda:12.1.0-base-rockylinux9
+FROM nvidia/cuda:12.1.0-base-ubuntu22.04
 
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata.
 WORKDIR /app
 COPY . .
 # Update package repositories and install dependencies
-RUN dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-RUN dnf update -y
-RUN dnf install -y sudo wget git python310 python3-pip curl ffmpeg
+RUN apt update
+RUN apt install -y git wget curl python3.10 ffmpeg python-is-python3
+RUN apt install -y pip
 RUN pip install -r requirements.txt
 RUN python install.py --onnxruntime cuda
-
-# VOLUME /home/user/facefusion/
-
 
 # Expose port 7860
 ENV PORT=7860
