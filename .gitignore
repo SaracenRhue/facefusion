@@ -1,6 +1,5 @@
 .assets
 .idea
 .vscode
-.assets
 __pycache__
 *.pyc
