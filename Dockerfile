@@ -8,8 +8,8 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata.
 RUN apt install -y git wget curl python3.10 ffmpeg python-is-python3
 RUN apt install -y pip
 RUN pip install -r requirements.txt
-RUN python install.py
 
+VOLUME /app
 # Expose port 7860
 ENV PORT=7860
 EXPOSE 7860
