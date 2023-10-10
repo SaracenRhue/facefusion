@@ -7,7 +7,7 @@ RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata.
 RUN apt install -y git wget curl python3.10 ffmpeg python-is-python3
 RUN apt install -y pip
-RUN pip install inquirer
+RUN pip install -r requirements.txt && pip install inquirer
 RUN python install.py --torch cuda --onnxruntime cuda
 
 VOLUME /app/.assets:/facefusion/.assets
