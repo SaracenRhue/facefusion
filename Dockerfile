@@ -8,7 +8,7 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata.
 RUN apt install -y git wget curl python3.10 ffmpeg python-is-python3
 RUN apt install -y pip
 RUN pip install --upgrade pip
-RUN pip install inquirer tensorflow==2.13.0
+RUN pip install -r custom.txt
 RUN python install.py --torch cuda --onnxruntime cuda
 
 VOLUME /app/.assets:/facefusion/.assets
