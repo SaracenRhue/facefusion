@@ -12,6 +12,7 @@ RUN pip install inquirer
 RUN python install.py --torch cuda --onnxruntime cuda
 
 VOLUME /app/.assets:/facefusion/.assets
+
 # Expose port 7860
 ENV PORT=7860
 EXPOSE 7860
